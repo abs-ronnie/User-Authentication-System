@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<br>
+<!-- alert message -->
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-warning" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    {{ message }}
+</div>
+{% endfor %}
+{% endif %}
+
+<br>
+<h3 class="text-center">Login</h3>
+
+<form method="POST" class="form-group col-md-6 offset-md-3">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit" class="btn btn-primary">Login</button>
+</form>
+
+{% endblock %}
